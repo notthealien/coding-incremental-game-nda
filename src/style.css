@@ -1,3 +1,10 @@
 #firstButton {
     user-select: none;
   }
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 600px 100px;
+    grid-template-rows: 50px 100%;
+    grid-gap: 10px;
+}

@@ -1,6 +1,54 @@
-let money = 0.00;
-let a = 0;
-let mps = 0.01;
+const currentVersion = 20230531;
+
+const savedValues = getAllCookieValues();
+
+const savedMoney = savedValues.money;
+const savedClicks = savedValues.clicks;
+const savedMps = savedValues.mps;
+const savedVersion = savedValues.version;
+
+let money = savedMoney ? parseFloat(savedMoney) : 0.00;
+let a = savedClicks ? parseFloat(savedClicks) : 0;
+let mps = savedMps ? parseFloat(savedMps) : 0.01;
+const loadedSavegameVersion = savedVersion ? parseFloat(savedVersion) : 20230531;
+
+document.addEventListener("DOMContentLoaded", function(event) {
+   document.cookie = "version=" + currentVersion + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+   if (a > 0) {
+      clickH1();
+  }
+});
+
+function writeCookie() {
+    document.cookie = "money=" + money + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+    document.cookie = "clicks=" + click + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+    document.cookie = "mps=" + mps + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+}
+
+function getAllCookieValues() {
+    const cookies = document.cookie.split(';');
+    const cookieValues = {};
+  
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      const [name, value] = cookie.split('=');
+      cookieValues[name] = value;
+    }
+  
+    return cookieValues;
+  }
+
+// dublicated code
+// function getCookieValue(cookieName) {
+//     const cookies = document.cookie.split(';');
+//     for (let i = 0; i < cookies.length; i++) {
+//       const cookie = cookies[i].trim();
+//       if (cookie.startsWith(cookieName + '=')) {
+//         return cookie.substring(cookieName.length + 1);
+//       }
+//     }
+//     return null; // Cookie not found
+//   }
 
 function draw(progress){
     const ctx = progress.getContext('2d');        
@@ -17,8 +65,6 @@ function addmoney(step){
 function clickButton(){
     addmoney(0.10);
 }
-
-
 
 function clickH1(){
     a++;
@@ -51,6 +97,10 @@ function clickH1(){
 
         window.setInterval(function(){
             addmoney(mps);
-        }, 1000);
+        }, 1000);        
     }    
+    
+    document.cookie = "money=" + money + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+    document.cookie = "clicks=" + a + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+    document.cookie = "mps=" + mps + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";    
   }

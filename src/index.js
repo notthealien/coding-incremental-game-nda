@@ -13,11 +13,45 @@ let mps = savedMps ? parseFloat(savedMps) : 0.01;
 const loadedSavegameVersion = savedVersion ? parseFloat(savedVersion) : 20230531;
 
 document.addEventListener("DOMContentLoaded", function(event) {
-   document.cookie = "version=" + currentVersion + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-   if (a > 0) {
-      clickH1();
-  }
+  //  document.cookie = "version=" + currentVersion + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+  //  if (a > 0) {
+  //     clickH1();
+  // }
+
+  document.getElementById("middle").innerHTML = str("tutorial1");
+  document.getElementById("currentVersion").innerHTML = "Current Version: " + currentVersion;
 });
+
+function str(chapter){
+  switch(chapter){
+    case "tutorial1":
+      return `
+        <canvas id="progress" width="400" height="30"></canvas>
+        <div id="tutorial1">
+          <div id="tutorial1b"></div>
+          Welcome to the Coding Incremental Game!<br />
+          I'm your tutorial guide, and I'll help you to learn how to play this game.<br />
+          <br />
+          We will start with the basics.<br />
+          A simple almost empty page with a heading element.<br /><br />
+          The tag is &lt;h1&gt;&lt;/h1&gt;.<br />
+          <br />
+          How it looks like?<br />
+          Look at the top of the page, there is a big text "Coding Incremental Game".<br />
+          <br />
+          Click on the heading element 10 times to unlock next level!<br />
+          <br />
+          You also will earn a little bit of money for each click.<br />
+          Later you will be able to spend it on upgrades.<br />
+        </div>
+        `;
+        break;
+        default:
+          return "";
+  }
+}   
+
+
 
 function writeCookie() {
     document.cookie = "money=" + money + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
@@ -89,10 +123,10 @@ function clickH1(){
         "<h2 title='<h2></h2>' id='headingjs'>3. JS</h2>"+
         "<h2 title='<h2></h2>' id='headingcompile'>4. Compile</h2>";  
         
-        document.getElementById("menu").innerHTML += "<br\>"+
-        "Buy<br\>"+
-        "Upgrade<br\>"+
-        "Research<br\>";
+        document.getElementById("menu").innerHTML += "<ul>"+
+        "<li class='isButton' onclick='clickBuy()'>Buy</li>"+
+        "<li class='isButton' onclick='clickUpgrade()'>Upgrade</li>"+
+        "<li class='isButton' onclick='clickResearch()'>Research</li></ul>";
         document.getElementById("firstButton").onclick = clickButton;
 
         window.setInterval(function(){
@@ -104,3 +138,18 @@ function clickH1(){
     document.cookie = "clicks=" + a + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
     document.cookie = "mps=" + mps + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";    
   }
+
+function clickBuy(){
+  document.getElementById("middle").innerHTML = "<h2>Buy</h2>";
+}
+
+function clickUpgrade(){
+  document.getElementById("tutorial1").remove();
+  document.getElementById("middle").innerHTML = "<h2>Upgrade</h2>";
+  
+
+}
+
+function clickResearch(){
+  document.getElementById("middle").innerHTML = "<h2>Research</h2>";
+}

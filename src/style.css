@@ -1,10 +1,37 @@
-#firstButton {
+.isButton {
     user-select: none;
   }
 
 .container {
     display: grid;
-    grid-template-columns: 200px auto 100px;
+    grid-template-columns: auto 1fr auto;
     grid-template-rows: auto 100%;
     grid-gap: 10px;
+}
+
+.left-column {
+  grid-column: 1; /* Place left column in the first column */
+  width: 100px; /* Adjust the width as per your requirement */
+}
+
+.middle-column {
+  grid-column: 2; /* Place middle column in the second column */
+}
+
+.right-column {
+  grid-column: 3; /* Place right column in the third column */
+  width: 100px; /* Adjust the width as per your requirement */
+}
+
+ul {
+  padding-left: 1em;
+}
+
+li{
+  margin: 10px 0;
+}
+
+.small {
+  font-size: smaller;
+  font-style: italic;
 }

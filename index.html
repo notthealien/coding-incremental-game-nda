@@ -6,39 +6,33 @@
   </head>
   <body>
 	<script src="./src/index.js"></script>
+
   <div class="container">
 
-    <p></p>
+    <div class="left-column, top-column">
+      <p></p>
+    </div>
 
-    <h1 title="<h1></h1>" id="firstButton" onclick="clickH1()">Coding Incremental Game</h1>
+    <div class="middle-column, top-column">      
+      <h1 title="<h1></h1>" id="firstButton" class="isButton" onclick="clickH1()">Coding Incremental Game</h1>
+    </div>
 
-    <p id="money">Money 0.00</p>
+    <div class="right-column, top-column">
+      <p id="money" class="right-column">Money 0.00</p>
+    </div>
 
-    <p id="menu">Menu</p>
+    <div class="left-column">
+      <p id="menu" class="left-column">Menu</p>
+    </div>
 
-    <div>
-      <p>
-        <canvas id="progress" width="400" height="30"></canvas>
-        <div id="tutorial1">
-          <div id="tutorial1b"></div>
-          Welcome to the Coding Incremental Game!<br />
-          I'm your tutorial guide, and I'll help you to learn how to play this game.<br />
-          <br />
-          We will start with the basics.<br />
-          A simple almost empty page with a heading element.<br /><br />
-          The tag is &lt;h1&gt;&lt;/h1&gt;.<br />
-          <br />
-          How it looks like?<br />
-          Look at the top of the page, there is a big text "Coding Incremental Game".<br />
-          <br />
-          Click on the heading element 10 times to unlock next level!<br />
-          <br />
-          You also will earn a little bit of money for each click.<br />
-          Later you will be able to spend it on upgrades.<br />
-        </div>
+    <div class="middle-column">
+      <p id="middle">
       </p>
     </div>
-    
-  </div>
+
+    <div class="middle-column">
+      <p id="currentVersion"></p>
+    </div>
+
   </body>
 </html>

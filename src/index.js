@@ -1,4 +1,4 @@
-const currentVersion = 20230531;
+const currentVersion = 20230602;
 
 const savedValues = getAllCookieValues();
 
@@ -18,8 +18,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //     clickH1();
   // }
 
+  document.getElementById("topbar").innerHTML = '<h1 title="<h1></h1>" id="firstButton" class="isButton" onclick="clickH1()">Coding Incremental Game</h1>';
   document.getElementById("middle").innerHTML = str("tutorial1");
-  document.getElementById("currentVersion").innerHTML = "Current Version: " + currentVersion;
+  document.getElementById("currentVersion").innerHTML = "Current Version: " + currentVersion+"<br\><span class='small'>History log: comming soon</span>";
 });
 
 function str(chapter){
@@ -50,8 +51,6 @@ function str(chapter){
           return "";
   }
 }   
-
-
 
 function writeCookie() {
     document.cookie = "money=" + money + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
@@ -144,12 +143,16 @@ function clickBuy(){
 }
 
 function clickUpgrade(){
-  document.getElementById("tutorial1").remove();
+  //document.getElementById("tutorial1").remove();
   document.getElementById("middle").innerHTML = "<h2>Upgrade</h2>";
-  
-
 }
 
 function clickResearch(){
-  document.getElementById("middle").innerHTML = "<h2>Research</h2>";
+  const element = document.getElementById("middle");
+  element.innerHTML = "<h2>Research</h2>";
+  element.innerHTML += "HTML tags for 100<br\>";
+  element.innerHTML += "CSS styles for 150<br\>";
+  element.innerHTML += "JavaScript for 450<br\>";
+
+
 }

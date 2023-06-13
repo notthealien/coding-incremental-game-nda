@@ -1,4 +1,4 @@
-const currentVersion = 20230602;
+const currentVersion = 20230613;
 
 const savedValues = getAllCookieValues();
 
@@ -137,22 +137,3 @@ function clickH1(){
     document.cookie = "clicks=" + a + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
     document.cookie = "mps=" + mps + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";    
   }
-
-function clickBuy(){
-  document.getElementById("middle").innerHTML = "<h2>Buy</h2>";
-}
-
-function clickUpgrade(){
-  //document.getElementById("tutorial1").remove();
-  document.getElementById("middle").innerHTML = "<h2>Upgrade</h2>";
-}
-
-function clickResearch(){
-  const element = document.getElementById("middle");
-  element.innerHTML = "<h2>Research</h2>";
-  element.innerHTML += "HTML tags for 100<br\>";
-  element.innerHTML += "CSS styles for 150<br\>";
-  element.innerHTML += "JavaScript for 450<br\>";
-
-
-}
